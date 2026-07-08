@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>ArelunaAtelier — Dari Tangan Pengerajin, Langsung ke Tanganmu</title>
+<meta name="description" content="Platform e-commerce eksklusif untuk produk handmade UMKM Indonesia."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="sty.css"/>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    
+    <a href="#" class="logo">Areluna<em>Atelier</em></a>
+    <!-- SEARCH -->
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#tentang">Tentang</a></li>
+      <li><a href="#fitur">Keunggulan</a></li>
+      <li><a href="#cara-kerja">Cara Kerja</a></li>
+      <li><a href="#produk">Produk</a></li>
+      <li><a href="#testimoni">Testimoni</a></li>
+    </ul>
+    <a href="#daftar" class="nav-btn">Mulai Berjualan</a>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mob-menu" id="mobMenu">
+  <ul>
+    <li><a href="#tentang" onclick="closeMob()">Tentang</a></li>
+    <li><a href="#fitur" onclick="closeMob()">Keunggulan</a></li>
+    <li><a href="#cara-kerja" onclick="closeMob()">Cara Kerja</a></li>
+    <li><a href="#produk" onclick="closeMob()">Produk</a></li>
+    <li><a href="#testimoni" onclick="closeMob()">Testimoni</a></li>
+    <li><a href="#daftar" onclick="closeMob()" class="mob-cta">Mulai Berjualan</a></li>
+  </ul>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-wrap">
+    <!-- LEFT -->
+    <div class="hero-left">
+      <div class="hero-badge reveal">Platform Handmade Indonesia</div>
+      <h1 class="hero-title reveal"><br/> Setiap Karya<em> Dibuat Dengan</em> Tangan dan Cerita</h1>
+      <p class="hero-desc reveal">Ingin sesuatu yang personal? ArelunaAtelier membuat aksesori, dekorasi, dan karya seni custom yang dirancang khusus untukmu atau orang tersayang.</p>
+      <div class="hero-btns reveal">
+        <a href="#produk" class="btn-outline">Jelajahi Produk →</a>
+      </div>
+      <div class="hero-stats reveal">
+        <div class="hstat"><span class="hsn">2.4K+</span><span class="hsl">Pengrajin Aktif</span></div>
+        <div class="hstat"><span class="hsn">18K+</span><span class="hsl">Produk Terjual</span></div>
+        <div class="hstat"><span class="hsn">4.9★</span><span class="hsl">Rating Platform</span></div>
+      </div>
+    </div>
+    <!-- RIGHT -->
+    <div class="hero-right reveal">
+      <div class="hero-card">
+        <div class="hcard-img">
+          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=200&h=200&fit=crop&crop=center" alt="Gelang Rajut Bohemian" loading="lazy"/>
+        </div>
+        <div class="hcard-info">
+          <div class="hcard-name">Gelang Ashtetic</div>
+          <div class="hcard-seller">oleh @Fanss · Semarang</div>
+          <div class="hcard-price">Rp 12.000</div>
+          <div class="hcard-tags">
+            <span>Aksesori</span><span>Handmade</span><span>Verifikasi</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-floats">
+        <div class="hfloat">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+          <div><div class="hfl">Terjual hari ini</div><div class="hfv">+127 produk</div></div>
+        </div>
+        <div class="hfloat">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <div><div class="hfl">Bergabung baru</div><div class="hfv">Rojes — Palembang</div></div>
+        </div>
+        <div class="hfloat">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <div><div class="hfl">Seller aktif</div><div class="hfv">2.4K pengrajin</div></div>
+        </div>
+        <div class="hfloat">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <div><div class="hfl">Rating rata-rata</div><div class="hfv">4.9 / 5.0</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-bar">
+  <div class="mq-track">
+    <span>✦</span><span>Totebag Lukis</span>
+    <span>✦</span><span>Keramik Custom</span>
+    <span>✦</span><span>Aksesori</span>
+    <span>✦</span><span>Home Decor</span>
+    <span>✦</span><span>Fashion Rajutan</span>
+    <span>✦</span><span>Lilin Aromaterapi</span>
+    <span>✦</span><span>Seni Ilustrasi</span>
+    <span>✦</span><span>Totebag Lukis</span>
+    <span>✦</span><span>Keramik Custom</span>
+    <span>✦</span><span>Aksesoris</span>
+    <span>✦</span><span>Home Decor</span>
+    <span>✦</span><span>Fashion Rajutan</span>
+    <span>✦</span><span>Lilin Aroma terapi</span>
+    <span>✦</span><span>Seni Ilustrasi</span>
+  </div>
+</div>
+
+<!-- PROBLEM -->
+<section class="section-white" id="tentang">
+  <div class="container">
+    <p class="sec-eyebrow reveal">Mengapa ArelunaAtelier?</p>
+    <div class="problem-grid">
+      <div class="prob-left reveal">
+        <h2>Pengrajin Berbakat Tersembunyi di <em>Keramaian</em></h2>
+        <p>Di marketplace konvensional, produk handmade UMKM kecil tenggelam di antara iklan brand besar dan produk massal. Karya yang dibuat dengan sepenuh hati diperlakukan sama seperti barang produksi pabrik.</p>
+        <p>Di ArelunaAtelier, setiap karya diberi ruang untuk tampil apa adanya — detail, proses, dan cerita di baliknya, bukan hanya harga dan foto produk.</p>
+      </div>
+      <div class="prob-right reveal">
+        <div class="prob-item">
+          <div class="prob-num">01</div>
+          <div>
+            <h4>Sulit Dapat Versi Custom</h4>
+            <p> Ingin warna, ukuran, atau desain sesuai selera sendiri? Produk massal jarang menawarkan itu.</p>
+          </div>
+        </div>
+        <div class="prob-item">
+          <div class="prob-num">02</div>
+          <div>
+            <h4>Tidak Ada Sentuhan Personalisasi</h4>
+            <p>Sulit memesan sesuatu yang benar-benar dibuat khusus untuk kebutuhan atau momen tertentu.</p>
+          </div>
+        </div>
+        <div class="prob-item">
+          <div class="prob-num">03</div>
+          <div>
+            <h4>Kado Pasaran, Terasa Generik</h4>
+            <p>Barang yang itu-itu saja membuat hadiah terasa kurang berkesan.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="section-gray" id="fitur">
+  <div class="container">
+    <p class="sec-eyebrow reveal">Keunggulan Platform</p>
+    <h2 class="sec-title reveal">Dibuat Khusus untuk <em>Pecinta Seni</em></h2>
+    <div class="feat-grid">
+      <div class="feat-card reveal">
+        <div class="feat-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h4>100% Handmade, Bukan Produksi Massal</h4>
+        <p>Setiap produk dibuat dan diselesaikan dengan tangan, bukan hasil cetakan pabrik — jadi detail dan teksturnya unik di tiap potong.</p>
+      </div>
+      <div class="feat-card reveal">
+        <div class="feat-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <h4>Bisa Custom Sesuai Keinginan</h4>
+        <p>Warna, ukuran, motif, hingga pesan personal bisa disesuaikan — cocok untuk kado atau kebutuhan khusus (terutama untuk lukisan potret & totebag lukis).</p>
+      </div>
+      <div class="feat-card reveal">
+        <div class="feat-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+        </div>
+        <h4>Bahan Pilihan & Kualitas Terjaga</h4>
+        <p>Pakai bahan baku yang dipilih langsung (benang, wax alami, kanvas, cat), bukan yang termurah demi menekan biaya produksi.</p>
+      </div>
+      <div class="feat-card reveal">
+        <div class="feat-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        </div>
+        <h4>Proses Pembuatan Transparan</h4>
+        <p>Bisa cerita/tunjukkan proses di balik layar — misalnya lewat foto/video proses merajut, melukis, atau menuang lilin — membangun kepercayaan lewat keterbukaan proses.</p>
+      </div>
+      <div class="feat-card reveal">
+        <div class="feat-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h4>Pengiriman ke Seluruh Indonesia</h4>
+        <p>Dikemas rapi dan aman, dikirim ke berbagai kota — cocok kalau kamu memang sudah/berencana melayani pengiriman luar kota.</p>
+      </div>
+      <div class="feat-card reveal">
+        <div class="feat-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+        </div>
+        <h4>Respon Cepat & Ramah</h4>
+        <p>Bisa tanya-tanya soal custom order, bahan, atau estimasi pengerjaan langsung lewat kontak (WA/Instagram) yang responsif.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section-white" id="cara-kerja">
+  <div class="container">
+    <p class="sec-eyebrow reveal">Cara Kerja</p>
+    <h2 class="sec-title reveal">Mulai dalam <em>3 Langkah</em></h2>
+    <div class="steps-wrap">
+      <div class="steps-line"></div>
+      <div class="steps-grid">
+        <div class="step reveal">
+          <div class="step-num">1</div>
+          <h4>Pilih Karya</h4>
+          <p>Jelajahi koleksi gelang rajut, lilin aromaterapi, totebag lukis, atau lukisan custom yang kamu suka.</p>
+        </div>
+        <div class="step reveal">
+          <div class="step-num">2</div>
+          <h4>Hubungi Kami</h4>
+          <p>Chat lewat WhatsApp/Instagram untuk tanya detail, custom request, atau konfirmasi pesanan.</p>
+        </div>
+        <div class="step reveal">
+          <div class="step-num">3</div>
+          <h4>Karya Sampai Di Tanganmu</h4>
+          <p>Nikmati Karya Terbaik Kami.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="section-gray" id="produk">
+  <div class="container">
+    <p class="sec-eyebrow reveal">Koleksi Terkini</p>
+    <h2 class="sec-title reveal">Karya dari <em>Tangan Pengrajin</em></h2>
+    <div class="prod-grid">
+      <div class="prod-card reveal" tabindex="0" role="button"
+           data-name="Gelang Rajut Bohemian"
+           data-price="Rp 95.000"
+           data-seller="@handrawcraft"
+           data-badge="Aksesoris"
+           data-img="aset\Gelangrajut.jpg"
+           data-desc="Gelang rajut bergaya bohemian yang dibuat manual dengan benang katun pilihan. Setiap simpul dirajut satu per satu sehingga motif dan teksturnya terasa hangat dan personal. Cocok dipakai sehari-hari maupun sebagai aksesori pemanis outfit kasual.">
+        <div class="prod-img">
+          <img src="aset\Gelangrajut.jpg" alt="Gelang Rajut Bohemian" loading="lazy"/>
+          <span class="prod-badge">Aksesoris</span>
+        </div>
+        <div class="prod-info">
+          <h4>Gelang Rajut Bohemian</h4>
+          <div class="prod-price">Rp 95.000</div>
+          <div class="prod-seller">@handrawcraft</div>
+        </div>
+      </div>
+      <div class="prod-card reveal" tabindex="0" role="button"
+           data-name="Lilin Aromaterapi Lavender"
+           data-price="Rp 78.000"
+           data-seller="@lavenderia.id"
+           data-badge="Baru"
+           data-img="https://images.unsplash.com/photo-1603006905003-be475563bc59?w=800&h=600&fit=crop&crop=center"
+           data-desc="Lilin aromaterapi dengan bahan soy wax alami dan minyak esensial lavender murni. Dibakar perlahan hingga 30 jam, memberi aroma menenangkan yang cocok untuk relaksasi setelah hari yang panjang atau menemani momen me-time di rumah.">
+        <div class="prod-img">
+          <img src="https://images.unsplash.com/photo-1603006905003-be475563bc59?w=400&h=300&fit=crop&crop=center" alt="Lilin Aromaterapi Lavender" loading="lazy"/>
+          <span class="prod-badge new">Baru</span>
+        </div>
+        <div class="prod-info">
+          <h4>Lilin Aromaterapi Lavender</h4>
+          <div class="prod-price">Rp 78.000</div>
+          <div class="prod-seller">@lavenderia.id</div>
+        </div>
+      </div>
+      <div class="prod-card reveal" tabindex="0" role="button"
+           data-name="Totebag Lukis Batik Modern"
+           data-price="Rp 145.000"
+           data-seller="@batik.canting"
+           data-badge="Fashion"
+           data-img="https://images.unsplash.com/photo-1544816155-12df9643f363?w=800&h=600&fit=crop&crop=center"
+           data-desc="Totebag berbahan kanvas tebal yang dilukis tangan dengan motif batik bergaya modern. Setiap totebag adalah karya unik karena dilukis satu per satu, cocok untuk menemani aktivitas kuliah, kerja, atau jalan-jalan sekaligus menonjolkan gaya khas Indonesia.">
+        <div class="prod-img">
+          <img src="https://images.unsplash.com/photo-1544816155-12df9643f363?w=400&h=300&fit=crop&crop=center" alt="Totebag Lukis Batik Modern" loading="lazy"/>
+          <span class="prod-badge fashion">Fashion</span>
+        </div>
+        <div class="prod-info">
+          <h4>Totebag Lukis Batik Modern</h4>
+          <div class="prod-price">Rp 145.000</div>
+          <div class="prod-seller">@batik.canting</div>
+        </div>
+      </div>
+      <div class="prod-card reveal" tabindex="0" role="button"
+           data-name="Lukisan Custom Potret"
+           data-price="Rp 220.000"
+           data-seller="@potret.kita"
+           data-badge="Seni"
+           data-img="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=800&h=600&fit=crop&crop=center"
+           data-desc="Lukisan potret custom yang digambar langsung dari fotomu, menggunakan cat akrilik di atas kanvas. Cocok dijadikan kado spesial atau kenang-kenangan keluarga, dengan proses pengerjaan yang memperhatikan detail ekspresi dan karakter wajah.">
+        <div class="prod-img">
+          <img src="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=400&h=300&fit=crop&crop=center" alt="Lukisan Custom Potret" loading="lazy"/>
+          <span class="prod-badge seni">Seni</span>
+        </div>
+        <div class="prod-info">
+          <h4>Lukisan Custom Potret</h4>
+          <div class="prod-price">Rp 220.000</div>
+          <div class="prod-seller">@potret.kita</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONI -->
+<section class="section-white" id="testimoni">
+  <div class="container">
+    <p class="sec-eyebrow reveal">Kata Mereka</p>
+    <h2 class="sec-title reveal">Pengrajin yang <em>Sudah Merasakan</em></h2>
+    <div class="testi-grid">
+      <div class="testi-card reveal">
+        <div class="testi-stars">★★★★★</div>
+        <p>"Berkat ArelunaAtelier, produk rajut saya dikenal banyak orang. Penjualan naik 3x lipat dalam 2 bulan!"</p>
+        <div class="testi-author">
+          <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=40&h=40&fit=crop&crop=face" alt="Sari Andini"/>
+          <div>
+            <strong>Gregorius Jeffriyan</strong>
+            <span>Pembuat Aksesori · Kalimantan</span>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card dark reveal">
+        <div class="testi-stars">★★★★★</div>
+        <p>"Platform ini benar-benar mendukung pengerajin kecil seperti saya. Tidak ada persaingan tidak sehat dengan brand besar."</p>
+        <div class="testi-author">
+          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=40&h=40&fit=crop&crop=face" alt="Rina Putri"/>
+          <div>
+            <strong>Farhan Ardiansyah</strong>
+            <span>Pembuat Lilin · Yogyakarta</span>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card reveal">
+        <div class="testi-stars">★★★★★</div>
+        <p>"Akhirnya ada tempat yang bisa fokus untuk produk handmade asli. Fitur komunitasnya juga sangat membantu."</p>
+        <div class="testi-author">
+          <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=40&h=40&fit=crop&crop=face" alt="Dina Maharani"/>
+          <div>
+            <strong>Dina Maharani</strong>
+            <span>Pembuat Keramik · Jakarta</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">Areluna<em>Atelier</em></div>
+        <p>Platform e-commerce eksklusif untuk produk handmade UMKM Indonesia. Dari tangan, untuk dunia.</p>
+        <div class="footer-socials">
+          <a href="#" aria-label="Instagram">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="#" aria-label="Facebook">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="#" aria-label="TikTok">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
+          </a>
+          <a href="#" aria-label="YouTube">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Platform</h5>
+        <ul>
+          <li><a href="#">Tentang Kami</a></li>
+          <li><a href="#">Cara Kerja</a></li>
+          <li><a href="#">Kategori Produk</a></li>
+          <li><a href="#">Menjadi Seller</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Dukungan</h5>
+        <ul>
+          <li><a href="#">Pusat Bantuan</a></li>
+          <li><a href="#">Kebijakan Privasi</a></li>
+          <li><a href="#">Syarat & Ketentuan</a></li>
+          <li><a href="#">Hubungi Kami</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Komunitas</h5>
+        <ul>
+          <li><a href="#">Grup Pengrajin</a></li>
+          <li><a href="#">Forum Diskusi</a></li>
+          <li><a href="#">Tips & Inspirasi</a></li>
+          <li><a href="#">Event & Workshop</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 ArelunaAtelier.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- PRODUCT MODAL -->
+<div class="prod-modal-overlay" id="prodModalOverlay">
+  <div class="prod-modal" role="dialog" aria-modal="true" aria-labelledby="pmName">
+    <button class="prod-modal-close" id="prodModalClose" aria-label="Tutup">&times;</button>
+    <div class="prod-modal-img">
+      <img id="pmImg" src="" alt=""/>
+      <span class="prod-badge" id="pmBadge"></span>
+    </div>
+    <div class="prod-modal-info">
+      <h3 id="pmName"></h3>
+      <div class="prod-modal-price" id="pmPrice"></div>
+      <div class="prod-modal-seller" id="pmSeller"></div>
+      <p class="prod-modal-desc" id="pmDesc"></p>
+      <a href="#daftar" class="btn-dark" id="pmClose2">Tutup</a>
+    </div>
+  </div>
+</div>
+
+<script>
+// Navbar scroll
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 50));
+
+// Hamburger
+const hamburger = document.getElementById('hamburger');
+const mobMenu = document.getElementById('mobMenu');
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('open');
+  mobMenu.classList.toggle('open');
+});
+function closeMob() {
+  hamburger.classList.remove('open');
+  mobMenu.classList.remove('open');
+}
+
+// Reveal on scroll
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('visible'), i * 80);
+      revealObserver.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const t = document.querySelector(a.getAttribute('href'));
+    if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
+  });
+});
+
+// PRODUCT MODAL
+const prodModalOverlay = document.getElementById('prodModalOverlay');
+const pmImg = document.getElementById('pmImg');
+const pmBadge = document.getElementById('pmBadge');
+const pmName = document.getElementById('pmName');
+const pmPrice = document.getElementById('pmPrice');
+const pmSeller = document.getElementById('pmSeller');
+const pmDesc = document.getElementById('pmDesc');
+
+function openProdModal(card) {
+  pmImg.src = card.dataset.img;
+  pmImg.alt = card.dataset.name;
+  pmBadge.textContent = card.dataset.badge;
+  pmName.textContent = card.dataset.name;
+  pmPrice.textContent = card.dataset.price;
+  pmSeller.textContent = card.dataset.seller;
+  pmDesc.textContent = card.dataset.desc;
+  prodModalOverlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeProdModal() {
+  prodModalOverlay.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.querySelectorAll('.prod-card').forEach(card => {
+  card.addEventListener('click', () => openProdModal(card));
+  card.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      openProdModal(card);
+    }
+  });
+});
+
+document.getElementById('prodModalClose').addEventListener('click', closeProdModal);
+document.getElementById('pmClose2').addEventListener('click', e => {
+  e.preventDefault();
+  closeProdModal();
+});
+prodModalOverlay.addEventListener('click', e => {
+  if (e.target === prodModalOverlay) closeProdModal();
+});
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && prodModalOverlay.classList.contains('open')) closeProdModal();
+});
+</script>
+</body>
+</html>
