@@ -1,3 +1,19 @@
+<?php
+include 'config/koneksi.php';
+
+// HERO CARD
+$queryHero = mysqli_query($conn, "SELECT * FROM hero_card LIMIT 1");
+$hero = mysqli_fetch_assoc($queryHero);
+
+// HERO FLOAT
+$queryFloat = mysqli_query($conn, "SELECT * FROM hero_float");
+
+// PRODUK
+$queryProduk = mysqli_query($conn, "SELECT * FROM produk WHERE status='Aktif'");
+
+// TESTIMONI
+$queryTestimoni = mysqli_query($conn, "SELECT * FROM testimoni");
+?>
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -25,7 +41,6 @@
       <li><a href="#produk">Produk</a></li>
       <li><a href="#testimoni">Testimoni</a></li>
     </ul>
-    <a href="#daftar" class="nav-btn">Mulai Berjualan</a>
     <button class="hamburger" id="hamburger" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
@@ -40,7 +55,6 @@
     <li><a href="#cara-kerja" onclick="closeMob()">Cara Kerja</a></li>
     <li><a href="#produk" onclick="closeMob()">Produk</a></li>
     <li><a href="#testimoni" onclick="closeMob()">Testimoni</a></li>
-    <li><a href="#daftar" onclick="closeMob()" class="mob-cta">Mulai Berjualan</a></li>
   </ul>
 </div>
 
@@ -56,7 +70,7 @@
         <a href="#produk" class="btn-outline">Jelajahi Produk →</a>
       </div>
       <div class="hero-stats reveal">
-        <div class="hstat"><span class="hsn">2.4K+</span><span class="hsl">Pengrajin Aktif</span></div>
+        <div class="hstat"><span class="hsn">2.4K+</span><span class="hsl">Pembelian Dari Seluruh Indonesia</span></div>
         <div class="hstat"><span class="hsn">18K+</span><span class="hsl">Produk Terjual</span></div>
         <div class="hstat"><span class="hsn">4.9★</span><span class="hsl">Rating Platform</span></div>
       </div>
@@ -65,34 +79,78 @@
     <div class="hero-right reveal">
       <div class="hero-card">
         <div class="hcard-img">
-          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=200&h=200&fit=crop&crop=center" alt="Gelang Rajut Bohemian" loading="lazy"/>
+          <img src="<?= $hero['gambar']; ?>" alt="<?= $hero['nama_produk']; ?>" loading="lazy">
         </div>
         <div class="hcard-info">
-          <div class="hcard-name">Gelang Ashtetic</div>
-          <div class="hcard-seller">oleh @Fanss · Semarang</div>
-          <div class="hcard-price">Rp 12.000</div>
+          <div class="hcard-name"><?= $hero['nama_produk']; ?></div>
+          <div class="hcard-seller">oleh <?= $hero['seller']; ?></div>
+          <div class="hcard-price"><?= $hero['harga']; ?></div>
           <div class="hcard-tags">
-            <span>Aksesori</span><span>Handmade</span><span>Verifikasi</span>
+            <span><?= $hero['kategori']; ?></span>
+            <span>Handmade</span>
+            <span>Verifikasi</span>
           </div>
         </div>
       </div>
       <div class="hero-floats">
-        <div class="hfloat">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
-          <div><div class="hfl">Terjual hari ini</div><div class="hfv">+127 produk</div></div>
-        </div>
-        <div class="hfloat">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-          <div><div class="hfl">Bergabung baru</div><div class="hfv">Rojes — Palembang</div></div>
-        </div>
-        <div class="hfloat">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-          <div><div class="hfl">Seller aktif</div><div class="hfv">2.4K pengrajin</div></div>
-        </div>
-        <div class="hfloat">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          <div><div class="hfl">Rating rata-rata</div><div class="hfv">4.9 / 5.0</div></div>
-        </div>
+
+        <?php
+
+        while($float = mysqli_fetch_assoc($queryFloat)){
+        ?>
+
+          <div class="hfloat">
+
+            <?php
+              switch($float['icon']){
+              case 'chart':
+                ?>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/>
+                <polyline points="16 7 22 7 22 13"/>
+                </svg>
+                <?php
+              break;
+
+              case 'user':
+                ?>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                <circle cx="12" cy="7" r="4"/>
+                </svg>
+                <?php
+              break;
+
+              case 'group':
+                ?>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                </svg>
+                <?php
+              break;
+
+              default:
+                ?>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <circle cx="12" cy="12" r="10"/>
+                <polyline points="12 6 12 12 16 14"/>
+                </svg>
+                <?php
+              }
+            ?>
+
+            <div>
+                <div class="hfl"><?= $float['judul']; ?></div>
+                <div class="hfv"><?= $float['isi']; ?></div>
+            </div>
+
+          </div>
+          <?php
+          }
+          ?>
       </div>
     </div>
   </div>
@@ -237,122 +295,122 @@
 
 <!-- PRODUCTS -->
 <section class="section-gray" id="produk">
-  <div class="container">
-    <p class="sec-eyebrow reveal">Koleksi Terkini</p>
-    <h2 class="sec-title reveal">Karya dari <em>Tangan Pengrajin</em></h2>
-    <div class="prod-grid">
-      <div class="prod-card reveal" tabindex="0" role="button"
-           data-name="Gelang Rajut Bohemian"
-           data-price="Rp 95.000"
-           data-seller="@handrawcraft"
-           data-badge="Aksesoris"
-           data-img="aset\Gelangrajut.jpg"
-           data-desc="Gelang rajut bergaya bohemian yang dibuat manual dengan benang katun pilihan. Setiap simpul dirajut satu per satu sehingga motif dan teksturnya terasa hangat dan personal. Cocok dipakai sehari-hari maupun sebagai aksesori pemanis outfit kasual.">
-        <div class="prod-img">
-          <img src="aset\Gelangrajut.jpg" alt="Gelang Rajut Bohemian" loading="lazy"/>
-          <span class="prod-badge">Aksesoris</span>
-        </div>
-        <div class="prod-info">
-          <h4>Gelang Rajut Bohemian</h4>
-          <div class="prod-price">Rp 95.000</div>
-          <div class="prod-seller">@handrawcraft</div>
-        </div>
-      </div>
-      <div class="prod-card reveal" tabindex="0" role="button"
-           data-name="Lilin Aromaterapi Lavender"
-           data-price="Rp 78.000"
-           data-seller="@lavenderia.id"
-           data-badge="Baru"
-           data-img="https://images.unsplash.com/photo-1603006905003-be475563bc59?w=800&h=600&fit=crop&crop=center"
-           data-desc="Lilin aromaterapi dengan bahan soy wax alami dan minyak esensial lavender murni. Dibakar perlahan hingga 30 jam, memberi aroma menenangkan yang cocok untuk relaksasi setelah hari yang panjang atau menemani momen me-time di rumah.">
-        <div class="prod-img">
-          <img src="https://images.unsplash.com/photo-1603006905003-be475563bc59?w=400&h=300&fit=crop&crop=center" alt="Lilin Aromaterapi Lavender" loading="lazy"/>
-          <span class="prod-badge new">Baru</span>
-        </div>
-        <div class="prod-info">
-          <h4>Lilin Aromaterapi Lavender</h4>
-          <div class="prod-price">Rp 78.000</div>
-          <div class="prod-seller">@lavenderia.id</div>
-        </div>
-      </div>
-      <div class="prod-card reveal" tabindex="0" role="button"
-           data-name="Totebag Lukis Batik Modern"
-           data-price="Rp 145.000"
-           data-seller="@batik.canting"
-           data-badge="Fashion"
-           data-img="https://images.unsplash.com/photo-1544816155-12df9643f363?w=800&h=600&fit=crop&crop=center"
-           data-desc="Totebag berbahan kanvas tebal yang dilukis tangan dengan motif batik bergaya modern. Setiap totebag adalah karya unik karena dilukis satu per satu, cocok untuk menemani aktivitas kuliah, kerja, atau jalan-jalan sekaligus menonjolkan gaya khas Indonesia.">
-        <div class="prod-img">
-          <img src="https://images.unsplash.com/photo-1544816155-12df9643f363?w=400&h=300&fit=crop&crop=center" alt="Totebag Lukis Batik Modern" loading="lazy"/>
-          <span class="prod-badge fashion">Fashion</span>
-        </div>
-        <div class="prod-info">
-          <h4>Totebag Lukis Batik Modern</h4>
-          <div class="prod-price">Rp 145.000</div>
-          <div class="prod-seller">@batik.canting</div>
-        </div>
-      </div>
-      <div class="prod-card reveal" tabindex="0" role="button"
-           data-name="Lukisan Custom Potret"
-           data-price="Rp 220.000"
-           data-seller="@potret.kita"
-           data-badge="Seni"
-           data-img="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=800&h=600&fit=crop&crop=center"
-           data-desc="Lukisan potret custom yang digambar langsung dari fotomu, menggunakan cat akrilik di atas kanvas. Cocok dijadikan kado spesial atau kenang-kenangan keluarga, dengan proses pengerjaan yang memperhatikan detail ekspresi dan karakter wajah.">
-        <div class="prod-img">
-          <img src="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=400&h=300&fit=crop&crop=center" alt="Lukisan Custom Potret" loading="lazy"/>
-          <span class="prod-badge seni">Seni</span>
-        </div>
-        <div class="prod-info">
-          <h4>Lukisan Custom Potret</h4>
-          <div class="prod-price">Rp 220.000</div>
-          <div class="prod-seller">@potret.kita</div>
-        </div>
-      </div>
-    </div>
-  </div>
+
+<div class="container">
+
+<p class="sec-eyebrow reveal">Koleksi Terkini</p>
+
+<h2 class="sec-title reveal">
+Karya dari <em>Tangan Pengrajin</em>
+</h2>
+
+<div class="prod-grid">
+
+<?php
+
+$produk = mysqli_query($conn,"SELECT * FROM produk WHERE status='Aktif' ORDER BY id DESC");
+
+while($p=mysqli_fetch_assoc($produk)){
+
+?>
+
+<div
+class="prod-card reveal"
+tabindex="0"
+role="button"
+
+data-name="<?= htmlspecialchars($p['nama']) ?>"
+
+data-price="<?= htmlspecialchars($p['harga']) ?>"
+
+data-seller="<?= htmlspecialchars($p['seller']) ?>"
+
+data-badge="<?= htmlspecialchars($p['badge']) ?>"
+
+data-img="<?= htmlspecialchars($p['gambar']) ?>"
+
+data-desc="<?= htmlspecialchars($p['deskripsi']) ?>"
+>
+
+<div class="prod-img">
+
+<img
+src="<?= $p['gambar']; ?>"
+alt="<?= $p['nama']; ?>"
+loading="lazy">
+
+<span class="prod-badge">
+
+<?= $p['badge']; ?>
+
+</span>
+
+</div>
+
+<div class="prod-info">
+
+<h4><?= $p['nama']; ?></h4>
+
+<div class="prod-price">
+
+<?= $p['harga']; ?>
+
+</div>
+
+<div class="prod-seller">
+
+<?= $p['seller']; ?>
+
+</div>
+
+</div>
+
+</div>
+
+<?php } ?>
+
+</div>
+
+</div>
+
 </section>
 
 <!-- TESTIMONI -->
 <section class="section-white" id="testimoni">
   <div class="container">
+
     <p class="sec-eyebrow reveal">Kata Mereka</p>
-    <h2 class="sec-title reveal">Pengrajin yang <em>Sudah Merasakan</em></h2>
+    <h2 class="sec-title reveal">Pembeli yang <em>Sudah Merasakan</em></h2>
+
     <div class="testi-grid">
+
+    <?php while($testimoni = mysqli_fetch_assoc($queryTestimoni)){ ?>
+
       <div class="testi-card reveal">
-        <div class="testi-stars">★★★★★</div>
-        <p>"Berkat ArelunaAtelier, produk rajut saya dikenal banyak orang. Penjualan naik 3x lipat dalam 2 bulan!"</p>
-        <div class="testi-author">
-          <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=40&h=40&fit=crop&crop=face" alt="Sari Andini"/>
-          <div>
-            <strong>Gregorius Jeffriyan</strong>
-            <span>Pembuat Aksesori · Kalimantan</span>
-          </div>
+
+        <div class="testi-stars">
+        <?= str_repeat("★",$testimoni['rating']); ?>
         </div>
-      </div>
-      <div class="testi-card dark reveal">
-        <div class="testi-stars">★★★★★</div>
-        <p>"Platform ini benar-benar mendukung pengerajin kecil seperti saya. Tidak ada persaingan tidak sehat dengan brand besar."</p>
+
+        <p>"<?= $testimoni['komentar']; ?>"</p>
+
         <div class="testi-author">
-          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=40&h=40&fit=crop&crop=face" alt="Rina Putri"/>
+
+        <img src="uploads/testimoni/<?= htmlspecialchars($testimoni['foto']); ?>" alt="<?= htmlspecialchars($testimoni['nama']); ?>">
+
           <div>
-            <strong>Farhan Ardiansyah</strong>
-            <span>Pembuat Lilin · Yogyakarta</span>
+            <strong><?= $testimoni['nama']; ?></strong>
+            <span><?= htmlspecialchars($testimoni['pekerjaan']); ?></span>
           </div>
+
         </div>
+
       </div>
-      <div class="testi-card reveal">
-        <div class="testi-stars">★★★★★</div>
-        <p>"Akhirnya ada tempat yang bisa fokus untuk produk handmade asli. Fitur komunitasnya juga sangat membantu."</p>
-        <div class="testi-author">
-          <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=40&h=40&fit=crop&crop=face" alt="Dina Maharani"/>
-          <div>
-            <strong>Dina Maharani</strong>
-            <span>Pembuat Keramik · Jakarta</span>
-          </div>
-        </div>
-      </div>
+
+    <?php } ?>
+
     </div>
+
   </div>
 </section>
 
